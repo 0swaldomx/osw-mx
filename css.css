@@ -1,0 +1,132 @@
+body {
+	background-color: rgb(255, 255, 255);
+}
+
+a:link   {   
+	text-decoration:none;
+	color: #0F1873;
+}
+td {
+	vertical-align: top;
+}
+p{
+	padding-inline-end: 5%;
+	padding-left: 10px;
+	line-height: 25px;
+}
+h3, h1{
+	padding-left: 10px;
+	margin: 10px;
+}
+.element{
+      border-radius: 5px;
+      box-shadow: none;
+      transition: 400ms ease;
+    }
+.element:hover{
+      box-shadow: 12px 12px 32px rgba(0, 0, 0, 0.1),
+      -5px -5px 15px #460030;
+    }
+.todo{
+	width:100%;
+}
+.tabla1{
+	width:100%;
+	border-spacing:0px;
+}
+.tabla2{
+	margin:auto;
+	width:99%;
+	background-color: #460030;
+	border-spacing:0px;
+}
+.tabla3{
+	width:100%;
+	background-color: rgb(232, 232, 232);
+	border-spacing:0px;
+}
+.columna1{
+	width:5%;
+}
+.columna2{
+	width:10%;
+	background-color: #460030;
+}
+.columna3{
+	width:80%;
+}
+.bolsa{
+	border-style: solid;
+	border-color: #460030;
+	width: 99%;
+}
+main {
+	position:relative;
+	padding-inline-end: 10%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+main div {
+	padding-left: 5px;
+	border-radius: 10px;
+	border: solid 1px rgb(70, 0, 48);
+	margin: 10px;
+	vertical-align: top;
+	display:inline-block;
+	width:200px;
+	background-color: rgb(232, 232, 232);
+}
+.img1{
+	margin: 10px;
+}
+.px12{
+	font-size: 12px;
+}
+.texto{
+	padding-inline-end: 5%;
+	padding-left: 10px;
+	line-height: 25px;
+	margin-left: 15px;
+}
+.card{
+  margin: 0 auto;
+  padding: 1em;
+  background: #FFFFFF;
+  border-radius: 5px;
+  position: relative;
+}
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.card::after, .card::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 1px;
+  border-radius: 5px;
+  animation: 8s spin linear infinite;
+}
+.card::before{
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
+.container {
+      display: flex;
+      justify-content: flex-end;
+    }

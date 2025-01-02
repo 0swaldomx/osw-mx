@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>0swaldo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=200, initial-scale=1">
+    <script>
+        function calcularTiempo() {
+            // Obtener los valores de los metros para transporte y caminar
+            var metrosTransporte = document.getElementById("transporte").value;
+            var metrosCaminar = document.getElementById("caminar").value;
+            
+            // Convertir metros a kilómetros
+            var kilometrosTransporte = metrosTransporte / 1000;
+            var kilometrosCaminar = metrosCaminar / 1000;
+            
+            // Calcular tiempo en horas
+            var tiempoTransporte = kilometrosTransporte / 20;  // Velocidad de 20 km/h
+            var tiempoCaminar = kilometrosCaminar / 5;         // Velocidad de 5 km/h
+            
+            // Convertir tiempo a horas y minutos
+            var horasTransporte = Math.floor(tiempoTransporte);
+            var minutosTransporte = Math.round((tiempoTransporte - horasTransporte) * 60);
+            var horasCaminar = Math.floor(tiempoCaminar);
+            var minutosCaminar = Math.round((tiempoCaminar - horasCaminar) * 60);
+            
+            // Sumar tiempos
+            var totalHoras = horasTransporte + horasCaminar;
+            var totalMinutos = minutosTransporte + minutosCaminar;
+            if (totalMinutos >= 60) {
+                totalHoras += Math.floor(totalMinutos / 60);
+                totalMinutos = totalMinutos % 60;
+            }
+            
+            // Mostrar el resultado total
+            document.getElementById("resultado").innerText = `Tiempo total: ${totalHoras} horas y ${totalMinutos} minutos`;
+        }
+
+
+    </script>
+  
+<link rel="stylesheet" href="css.css">
+</head>
+
+<body><table class="todo"><tr><td>
+<table class="tabla1"><tr><td class="columna1">&nbsp;</td><td class="columna2">&nbsp;</td><td class="columna3">&nbsp;</td></tr></table>
+<table class="tabla2"><tr><td>&nbsp;</td></tr></table>
+
+<table class="tabla3"><tr><td>
+		<p>
+		  <div class="element">
+<h3>:: &nbsp;&nbsp;<a href="index.html">Oswaldo Ugarte</a></h3>
+</div>
+		</p>
+</td></tr></table>
+<table class="tabla2"><tr><td>&nbsp;</td></tr></table>
+
+<table class="tabla1"><tr><td class="columna1">&nbsp;</td><td class="columna2">&nbsp;</td>
+		<td class="columna3">
+
+    <h1>Calculadora de tiempos en translados mixtos:</h1>
+    <p id="resultado"></p>
+    <hr>
+    <label for="transporte">&nbsp;Transporte público:</label><br>
+    <input type="number" id="transporte" name="transporte" placeholder="Distancia en Metros"><br>&nbsp;<br>
+
+    <label for="caminar">&nbsp;Caminando:</label><br>
+    <input type="number" id="caminar" name="caminar" placeholder="Distancia en Metros"><br>&nbsp;<br>
+    <div><button onclick="calcularTiempo()">Calcular</button></div>
+    <hr>
+      
+</td>
+</tr></table>
+
+<div class="tabla1">
+
+<object data="base.html" style="width:100%">
+</object>
+
+</div>
+
+<!-- Oswaldo Ugarte www@osw.mx -->
+</td></tr></table>
+
+</body></html>

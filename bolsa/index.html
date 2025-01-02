@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Calculadora de Producto</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=200, initial-scale=1">
+    <script>
+        function calcular() {
+            // Obtener valores de las cajas de texto
+            var altura = parseFloat(document.getElementById("altura").value);
+            var frente = parseFloat(document.getElementById("frente").value);
+            var ancho = parseFloat(document.getElementById("ancho").value);
+            var piezas = parseInt(document.getElementById("piezas").value);
+            
+            // Calcular Corte 1
+            var corte1 = altura + 7 + (ancho / 2);
+            document.getElementById("corte1").innerText = `Corte 1: ${corte1}`;
+            
+            // Calcular Corte 2
+            var corte2 = (frente + ancho) * 2 + 2;
+            document.getElementById("corte2").innerText = `Corte 2: ${corte2}`;
+            
+            // Calcular Precio Unitario
+            var precioUnitario = (corte1 * corte2) / 400;
+            if (precioUnitario < 2.50) {
+                precioUnitario = 2.50;
+            }
+            document.getElementById("precioUnitario").innerText = `Precio unitario: $${precioUnitario.toFixed(2)}`;
+            
+            // Calcular Total del Pedido
+            var totalPedido = precioUnitario * piezas;
+            document.getElementById("totalPedido").innerText = `Total del pedido: $${totalPedido.toFixed(2)}`;
+
+            // Mostrar botón para enviar a WhatsApp
+            document.getElementById("enviarWhatsApp").style.display = 'block';
+        }
+
+        function enviarWhatsApp() {
+            var corte1 = document.getElementById("corte1").innerText;
+            var corte2 = document.getElementById("corte2").innerText;
+            var precioUnitario = document.getElementById("precioUnitario").innerText;
+            var totalPedido = document.getElementById("totalPedido").innerText;
+
+            var altura = document.getElementById("altura").value;
+            var frente = document.getElementById("frente").value;
+            var ancho = document.getElementById("ancho").value;
+            var piezas = document.getElementById("piezas").value;
+
+            var mensaje = `Pedido solicitado:\n:: Altura: ${altura}\n:: Frente: ${frente}\n :: Ancho: ${ancho}\n :: Piezas: ${piezas}\n${precioUnitario}\n${totalPedido}\n${corte1}\n${corte2}`;
+            var numero = "7751921410";
+            var url = `https://wa.me/52${numero}?text=${encodeURIComponent(mensaje)}`;
+
+            window.open(url, '_blank');
+        }
+    </script>
+<link rel="stylesheet" href="../css.css">
+</head>
+
+<body><table class="todo"><tr><td>
+<table class="tabla1"><tr><td class="columna1">&nbsp;</td><td class="columna2">&nbsp;</td><td class="columna3">&nbsp;</td></tr></table>
+<table class="tabla2"><tr><td>&nbsp;</td></tr></table>
+
+<table class="tabla3"><tr><td>
+		<p>
+		  <div class="element">
+<h3>:: &nbsp;&nbsp;<a href="https://kreaft.ensantiago.com">Kreaft</a></h3>
+</div>
+		</p>
+</td></tr></table>
+<table class="tabla2"><tr><td>&nbsp;</td></tr></table>
+
+<table class="tabla1"><tr><td class="columna1">&nbsp;</td><td class="columna2">&nbsp;</td>
+		<td class="columna3">
+
+    <h3 style="text-align: center;">Calculadora para bolsas en papel kraft</h3>
+    <p style="text-align: center;" id="precioUnitario"></p>
+    <p style="text-align: center;" id="totalPedido"></p>
+    <div class="container">
+	<button id="enviarWhatsApp" style="display:none;" onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
+	</div>
+    <hr>
+    <label for="altura">&nbsp;Altura:</label><br>
+    <input type="number" id="altura" name="altura" placeholder="Altura en centímetros">
+    <br>&nbsp;<br>
+    <label for="frente">&nbsp;Frente:</label><br>
+    <input type="number" id="frente" name="frente" placeholder="Frente en centímetros">
+    <br>&nbsp;<br>
+    <label for="ancho">&nbsp;Ancho:</label><br>
+    <input type="number" id="ancho" name="ancho" placeholder="Ancho en centímetros">
+    <br>&nbsp;<br>
+    <label for="piezas">&nbsp;Piezas:</label>&nbsp;&nbsp;
+    <input type="number" id="piezas" name="piezas" placeholder="Número de piezas">
+    <br>&nbsp;<br>
+    &nbsp;&nbsp;<button onclick="calcular()">Calcular</button>
+    <p id="corte1"></p>
+    <p id="corte2"></p>
+
+
+</td>
+</tr></table>
+
+<div class="tabla1">
+
+<object data="../base.html" style="width:100%">
+</object>
+
+</div>
+
+<!-- Oswaldo Ugarte www@osw.mx -->
+</td></tr></table>
+
+</body></html>
